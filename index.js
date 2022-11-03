@@ -8,6 +8,7 @@ const Validator = {
 		});
 	},
 	fieldMail: function(field) {
+		let DM = this.DOMAIN;
 		let validatorFn = field.validatorFn || function() {};
 		field.validatorFn = function() {
 			let res = validatorFn.apply(this, arguments);
@@ -23,7 +24,7 @@ const Validator = {
 				if(value[i] != '@') {
 					if(!at)
 						acc = true;
-					else if(this.DOMAIN.includes(value[i].toLower()))
+					else if(DM.includes(value[i].toLower()))
 						domain += value[i];
 					else
 						return { error: 'Błędny znak w zapisie domeny.' }
