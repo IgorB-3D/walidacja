@@ -85,6 +85,43 @@ const Validator = {
 			return true;
 		}
 	},
+	fieldISBN: function(field) {
+		let validatorFn = field.validatorFn || function() {};
+		field.validatorFn = function() {
+			let res = validatorFn.apply(this, arguments);
+			if(res && res.error)
+				return res;
+
+			let value = field.value.trim().replaceAll('-', '');
+			if(value.length == 10) {
+				let sum = 0;
+				for(let i = 0; i < 10; i++) {
+					let num = Number(value[i]);
+					sum += num * (10 - i);
+				}
+				if(sum % 11 != 0) {
+					return { error: 'Błędny ISBN.' }
+				}
+			} else if (value.length == 13) {
+				let sum = 0;
+				for(let i = 0; i < 10; i++) {
+					let num = Number(value[i]);
+					sum += num * (i % 2 == 0 ? 1 : 3);
+				}
+				let mod = sum % 10;
+				if(mod != 0) {
+					let check = 10 - mod;
+					if(value[value.length - 1] != check) {
+						return { error: 'Błędny ISBN.' }
+					}
+				}
+			} else {
+				return { error: 'Błędny ISBN.' }
+			}
+
+			return true;
+		}
+	},
 };
 
 const form = document.querySelector('form');
@@ -92,22 +129,27 @@ const nums = document.querySelectorAll('#wiek, #pesel, #tel');
 const mails = document.querySelectorAll('#email');
 const required = document.querySelectorAll('#imie, #nazwisko, #email, #pesel, #plec, #telefon, #klasa, #tytul, #wydawca, #isbn, #ewid');
 const pesel = document.querySelector('#pesel');
+const isbn = document.querySelector('#isbn');
 
 nums.forEach(x => Validator.watchNum(x));
 mails.forEach(x => Validator.fieldMail(x));
 required.forEach(x => Validator.fieldRequired(x));
 Validator.fieldPesel(pesel);
+Validator.fieldISBN(isbn);
 
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
+	let err = false;
 	[...form.elements].forEach(element => {
 		if(element.validatorFn != undefined) {
 			let result = element.validatorFn();
 			if(result && result.error) {
 				event.preventDefault();
 				alert(result.error);
+				err = true;
 			}
 		}
 	});
-	alert('Super, nie ma serwera ale formularz przeszedł');
+	if(!err)
+		alert('Super, nie ma serwera ale formularz przeszedł');
 });
