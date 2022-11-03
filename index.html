@@ -4,65 +4,75 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>Formularz</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<h1>RAM DL</h1>
+		<h2>Najlepszy serwis do pobierania RAMu</h2>
+		<p>Zapisz się do naszego programu, by pobrać więcej pamięci RAM.</p>
 		<form action="#">
-			<span>
+			<div>
 				<label for="imie" for="imie">Imie</label>
-				<input type="text" name="imie" id="imie">
-			</span>
-			<span>
+				<input type="text" name="imie" id="imie" required>
+			</div>
+			<div>
 				<label for="nazwisko" for="nazwisko">Nazwisko</label>
-				<input type="text" name="nazwisko" id="nazwisko">
-			</span>
-			<span>
+				<input type="text" name="nazwisko" id="nazwisko" required>
+			</div>
+			<div>
 				<label for="wiek" for="wiek">Wiek</label>
 				<input type="number" name="wiek" id="wiek">
-			</span>
-			<span>
+			</div>
+			<div>
 				<label for="email" for="email">Email</label>
-				<input type="email" name="email" id="email">
-			</span>
-			<span>
+				<input type="email" name="email" id="email" required>
+			</div>
+			<div>
 				<label for="pesel" for="pesel">Pesel</label>
-				<input type="number" name="pesel" id="pesel">
-			</span>
-			<span>
+				<input type="number" name="pesel" id="pesel" required>
+			</div>
+			<div>
 				<label for="plec" for="plec">Płeć w dowodzie</label>
-				<select name="plec" id="plec">
+				<select name="plec" id="plec" required>
 					<option value="K">K</option>
 					<option value="M">M</option>
 				</select>
-			</span>
-			<span>
+			</div>
+			<div>
 				<label for="telefon" for="telefon">Telefon</label>
-				<input type="tel" name="telefon" id="telefon">
-			</span>
-			<span>
+				<input type="tel" name="telefon" id="telefon" required>
+			</div>
+			<div>
 				<label for="klasa" for="klasa">Klasa</label>
-				<input type="text" name="klasa" id="klasa">
-			</span>
-			<span>
+				<input type="text" name="klasa" id="klasa" required>
+			</div>
+			<div>
 				<label for="tytul" for="tytul">Tytuł</label>
-				<input type="text" name="tytul" id="tytul">
-			</span>
-			<span>
+				<input type="text" name="tytul" id="tytul" required>
+			</div>
+			<div>
 				<label for="wydawca" for="wydawca">Wydawca</label>
-				<input type="text" name="wydawca" id="wydawca">
-			</span>
-			<span>
+				<input type="text" name="wydawca" id="wydawca" required>
+			</div>
+			<div>
 				<label for="isbn" for="isbn">ISBN</label>
 				<input type="text" name="isbn" id="isbn">
-			</span>
-			<span>
+			</div>
+			<div>
 				<label for="ewid" for="ewid">Numer ewidencyjny</label>
 				<input type="text" name="ewid" id="ewid">
-			</span>
-			<span>
+			</div>
+			<div>
 				<label for="uwagi" for="uwagi">Uwagi</label>
 				<textarea name="uwagi" id="uwagi" cols="30" rows="10"></textarea>
-			</span>
+			</div>
+			<div>
+				<input type="submit" value="Prześlij">
+			</div>
 		</form>
 		<script src="index.js"></script>
 	</body>

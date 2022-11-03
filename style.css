@@ -1,0 +1,46 @@
+* {
+	color: white;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+}
+
+body {
+	background-color: #131313;
+	display: grid;
+	place-items: center;
+}
+
+h1, h2, p {
+	margin: 0 0 0 0;
+}
+
+form {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	border-radius: 5px;
+	overflow: hidden;
+	border: 3px solid #0a0a0a;
+}
+
+div {
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	background-color: #2e2e2e;
+}
+
+div:nth-child(2n) {
+	background-color: #1a1a1a;
+}
+
+input, textarea {
+	border-radius: 5px;
+	background: #474747;
+}
+
+select, option { 
+	color: black;
+}
