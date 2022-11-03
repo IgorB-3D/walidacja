@@ -73,6 +73,16 @@ const Validator = {
 			let sum = 0;
 			let ctrl = Number(value.substring(10, 11));
 
+			const plec = document.querySelector('#plec').value.trim().toLowerCase();
+
+			if(plec == 'k' && Number(value[10]) % 2 != 0) {
+				return { error: 'Błędny pesel.' }
+			}
+
+			if(plec == 'm' && Number(value[10]) % 2 == 0) {
+				return { error: 'Błędny pesel.' }
+			}
+
 			for (let i = 0; i < weight.length; i++) {
 				sum += (Number(value.substring(i, i + 1)) * weight[i]);
 			}
@@ -92,7 +102,7 @@ const Validator = {
 			if(res && res.error)
 				return res;
 
-			let value = field.value.trim().replaceAll('-', '');
+			/*let value = field.value.trim().replaceAll('-', '');
 			if(value.length == 10) {
 				let sum = 0;
 				for(let i = 0; i < 10; i++) {
@@ -117,7 +127,7 @@ const Validator = {
 				}
 			} else {
 				return { error: 'Błędny ISBN.' }
-			}
+			}*/
 
 			return true;
 		}
@@ -125,7 +135,7 @@ const Validator = {
 };
 
 const form = document.querySelector('form');
-const nums = document.querySelectorAll('#wiek, #pesel, #tel');
+const nums = document.querySelectorAll('#wiek, #pesel, #telefon');
 const mails = document.querySelectorAll('#email');
 const required = document.querySelectorAll('#imie, #nazwisko, #email, #pesel, #plec, #telefon, #klasa, #tytul, #wydawca, #isbn, #ewid');
 const pesel = document.querySelector('#pesel');
