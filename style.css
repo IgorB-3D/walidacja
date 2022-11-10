@@ -44,3 +44,11 @@ input, textarea {
 select, option { 
 	color: black;
 }
+
+#err {
+	border: 2px solid black;
+	border-radius: 5px;
+	color: #da4141;
+	display: none;
+	position: absolute;
+}
